@@ -4,7 +4,7 @@ import com.cydeo.dto.RoleDTO;
 
 import java.util.List;
 
-public interface RoleService {
+public interface RoleService extends CrudService<RoleDTO,String>{
 
     // Save
     // Find by
@@ -12,7 +12,7 @@ public interface RoleService {
     // Edit
     // Update
     // Delete
-
+/*
     RoleDTO save(RoleDTO role);
     RoleDTO findByID(String username);
     List<RoleDTO> findAll();
@@ -20,5 +20,6 @@ public interface RoleService {
     RoleDTO update(RoleDTO role);
     void delete(RoleDTO role);
     void deleteById(Long id);
+*/
 
 }
