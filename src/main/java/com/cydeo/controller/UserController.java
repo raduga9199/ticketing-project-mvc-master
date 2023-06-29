@@ -38,11 +38,30 @@ public class UserController {
         return "redirect:/user/create";
     }
 
-    @DeleteMapping ("/create")
-    public String deleteUser(@ModelAttribute("user") UserDTO user,Model model){
+    @GetMapping ("/update/{username}")
+    public String editUser(@PathVariable("username") String username, Model model){
 
-        userService.deleteById(user.getUsername());
+
+        //what attributes are needed to be defined?
+
+        //user
+        //roles
+        //users
+
+        model.addAttribute("user",userService.findById(username));
+        model.addAttribute("roles",roleService.findAll());
+        model.addAttribute("users",userService.findAll());
+
+        return "/user/update";
+    }
+
+    @PostMapping("/update/{username}")
+    public String updateUser(@PathVariable("username") String username, UserDTO user){
+
+        userService.update(user);
 
         return "redirect:/user/create";
     }
+
+
 }
