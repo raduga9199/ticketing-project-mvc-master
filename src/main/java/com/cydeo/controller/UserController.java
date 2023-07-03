@@ -41,13 +41,6 @@ public class UserController {
     @GetMapping ("/update/{username}")
     public String editUser(@PathVariable("username") String username, Model model){
 
-
-        //what attributes are needed to be defined?
-
-        //user
-        //roles
-        //users
-
         model.addAttribute("user",userService.findById(username));
         model.addAttribute("roles",roleService.findAll());
         model.addAttribute("users",userService.findAll());
